@@ -41,7 +41,12 @@ const renderActiveNote = () => {
     $noteText.attr("readonly", true);
     $noteTitle.val(activeNote.title);
     $noteText.val(activeNote.text);
-  } 
+  } else {
+    $noteTitle.attr("readonly", false);
+    $noteText.attr("readonly", false);
+    $noteTitle.val("");
+    $noteText.val("");
+  }
 };
 
 // Get the note data from the inputs, save it to the db and update the view
