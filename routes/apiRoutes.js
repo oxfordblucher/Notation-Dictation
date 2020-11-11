@@ -6,14 +6,6 @@ const noteData = require("../db/db");
 const writeFileAsync = util.promisify(fs.writeFile);
 const readFileAsync = util.promisify(fs.readFile);
 
-String.prototype.capitalize = function() {
-    return this.charAt(0).toUpperCase() + this.slice(1);
-}
-
-String.prototype.decapitalize = function() {
-    return this.charAt(0).toLowerCase() + this.slice(1);
-}
-
 module.exports = function(app) {
     app.get("/api/notes", function(req, res) {
         readFileAsync(path.join(__dirname, "../db/db.json"), "utf8")
